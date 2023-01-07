@@ -152,3 +152,5 @@ export const CartProvider = ({ children }: ChildrenType) => {
     </CartContext.Provider>
   );
 };
+
+export default CartContext;
