@@ -6,7 +6,7 @@ export type ProductType = {
   price: number;
 };
 
-export type UseProductsContextType = {
+export type ProductStateType = {
   products: ProductType[];
 };
 
@@ -33,9 +33,9 @@ type ChildrenType = {
 // ];
 const initState: ProductType[] = [];
 
-const initContextState: UseProductsContextType = { products: [] };
+const initContextState: ProductStateType = { products: [] };
 
-const ProductsContext = createContext<UseProductsContextType>(initContextState);
+const ProductsContext = createContext<ProductStateType>(initContextState);
 
 export const ProductProvider = ({
   children,
