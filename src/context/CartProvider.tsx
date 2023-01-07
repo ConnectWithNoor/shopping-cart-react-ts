@@ -1,4 +1,4 @@
-import { Children, createContext, useMemo, useReducer } from 'react';
+import { createContext, useMemo, useReducer } from 'react';
 
 export type CartItemType = {
   sku: string;
@@ -11,6 +11,10 @@ type CartStateType = {
   cart: CartItemType[];
 };
 
+type ChildrenType = {
+  children?: React.ReactElement | React.ReactElement[];
+};
+
 const initCartState: CartStateType = { cart: [] };
 
 const REDUCER_ACTION_TYPE = {
@@ -21,6 +25,7 @@ const REDUCER_ACTION_TYPE = {
 } as const;
 
 export type ReducerActionType = typeof REDUCER_ACTION_TYPE;
+
 export type ReducerAction = {
   type: keyof ReducerActionType;
   payload?: CartItemType;
@@ -140,10 +145,6 @@ const initCartContextState: UseCardContextType = {
 
 export const CartContext =
   createContext<UseCardContextType>(initCartContextState);
-
-type ChildrenType = {
-  children?: React.ReactElement | React.ReactElement[];
-};
 
 export const CartProvider = ({ children }: ChildrenType) => {
   return (
