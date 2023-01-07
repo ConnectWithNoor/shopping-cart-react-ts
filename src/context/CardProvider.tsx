@@ -47,10 +47,36 @@ const reducer = (
     case 'REMOVE': {
       if (!action.payload)
         throw new Error('Action Payload missing in REMOVE action');
+
+      const { sku } = action.payload;
+      const filteredCart = state.cart.filter((cart) => cart.sku !== sku);
+
+      return {
+        ...state,
+        cart: [...filteredCart],
+      };
     }
     case 'QUANTITY': {
       if (!action.payload)
         throw new Error('Action Payload missing in QUANTITY action');
+
+      const { sku, quantity } = action.payload;
+      const itemExists = state.cart.find((item) => item.sku === sku);
+
+      if (!itemExists)
+        throw new Error('Item must exist in order to update the quantity');
+
+      const filteredCart = state.cart.filter((cart) => cart.sku !== sku);
+
+      const updatedItem: CartItemType = {
+        ...itemExists,
+        quantity,
+      };
+
+      return {
+        ...state,
+        cart: [...filteredCart, updatedItem],
+      };
     }
     case 'SUBMIT': {
       return {
