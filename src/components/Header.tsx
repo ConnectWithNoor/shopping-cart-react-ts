@@ -15,8 +15,8 @@ const Header = ({ setViewCart, viewCart }: HeaderProps) => {
       <div className='header__title-bar'>
         <h1>Acme Co.</h1>
         <div className='header__price-box'>
-          <p>Total Items: ${totalItems}</p>
-          <p>Total Price: ${totalPrice}</p>
+          <p>Total Items: {totalItems}</p>
+          <p>Total Price: {totalPrice}</p>
         </div>
         <Nav setViewCart={setViewCart} viewCart={viewCart} />
       </div>

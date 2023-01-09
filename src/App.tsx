@@ -7,14 +7,14 @@ import ProductList from './components/ProductList';
 function App() {
   const [viewCart, setViewCart] = useState(false);
 
-  const PageContent = viewCart ? Cart : ProductList;
+  const PageContent = viewCart ? <Cart /> : <ProductList />;
 
   return (
-    <div className='App'>
+    <>
       <Header viewCart={viewCart} setViewCart={setViewCart} />
-      <PageContent />
+      {PageContent}
       <Footer viewCart={viewCart} />
-    </div>
+    </>
   );
 }
 

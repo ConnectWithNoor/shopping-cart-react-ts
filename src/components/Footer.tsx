@@ -1,4 +1,3 @@
-import React from 'react';
 import useCart from '../hooks/useCart';
 
 type FooterProps = {
@@ -13,8 +12,8 @@ const Footer = ({ viewCart }: FooterProps) => {
     <p>Shopping Cart &copy; {year}</p>
   ) : (
     <>
-      <p>Total Items: ${totalItems}</p>
-      <p>Total Price: ${totalPrice}</p>
+      <p>Total Items: {totalItems}</p>
+      <p>Total Price: {totalPrice}</p>
       <p>Shopping Cart &copy; {year}</p>
     </>
   );

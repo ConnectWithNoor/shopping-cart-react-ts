@@ -112,7 +112,7 @@ const useCardContext = (initCartState: CartStateType) => {
     currency: 'USD',
   }).format(
     state.cart.reduce(
-      (prevValue, cartItem) => prevValue + cartItem.price * cartItem.price,
+      (prevValue, cartItem) => prevValue + cartItem.quantity * cartItem.price,
       0
     )
   );
